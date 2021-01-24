@@ -1,7 +1,7 @@
 <?php
 namespace Aura\Sql;
 
-class ConnectionLocatorTest extends \PHPUnit_Framework_TestCase
+class ConnectionLocatorTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var ConnectionLocator

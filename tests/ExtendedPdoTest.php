@@ -4,7 +4,7 @@ namespace Aura\Sql;
 use PDO;
 use stdClass;
 
-class ExtendedPdoTest extends \PHPUnit_Framework_TestCase
+class ExtendedPdoTest extends \PHPUnit\Framework\TestCase
 {
     /** @var ExtendedPdoInterface */
     protected $pdo;
@@ -78,10 +78,13 @@ class ExtendedPdoTest extends \PHPUnit_Framework_TestCase
         }
 
         $this->pdo->sqliteCreateFunction('foo', function () {});
-        $this->setExpectedException('BadMethodCallException');
+        $this->expectException('BadMethodCallException');
         $this->pdo->sqliteNoSuchMethod();
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testConnectionQueries()
     {
         // get default encoding
