@@ -5,7 +5,7 @@ use Psr\Log\LogLevel;
 
 class ProfilerTest extends \PHPUnit\Framework\TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->profiler = new Profiler();
     }

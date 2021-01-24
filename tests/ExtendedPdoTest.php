@@ -22,7 +22,7 @@ class ExtendedPdoTest extends \PHPUnit\Framework\TestCase
         10 => 'Kara',
     ];
 
-    public function setUp()
+    public function setUp(): void
     {
         if (! extension_loaded('pdo_sqlite')) {
             $this->markTestSkipped("Need 'pdo_sqlite' to test in memory.");
@@ -655,15 +655,15 @@ class ExtendedPdoTest extends \PHPUnit\Framework\TestCase
         $data = $this->dump($pdo);
 
         // DSN
-        $this->assertContains('[0]=>string(15) "sqlite::memory:"', $data);
+        $this->assertStringContainsString('[0]=>string(15) "sqlite::memory:"', $data);
         // username
-        $this->assertContains('[1]=>string(4) "****"', $data);
+        $this->assertStringContainsString('[1]=>string(4) "****"', $data);
         // password
-        $this->assertContains('[2]=>string(4) "****"', $data);
+        $this->assertStringContainsString('[2]=>string(4) "****"', $data);
         // options
-        $this->assertContains('[3]=>array(1) {[3]=>int(2)}', $data);
+        $this->assertStringContainsString('[3]=>array(1) {[3]=>int(2)}', $data);
         // queries
-        $this->assertContains('[4]=>array(0) {}', $data);
+        $this->assertStringContainsString('[4]=>array(0) {}', $data);
     }
 
     protected function dump($pdo)

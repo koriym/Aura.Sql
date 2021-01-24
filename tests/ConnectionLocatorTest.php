@@ -16,7 +16,7 @@ class ConnectionLocatorTest extends \PHPUnit\Framework\TestCase
 
     protected $write = [];
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->conns = [
             'default' => new ExtendedPdo('sqlite::memory:'),
