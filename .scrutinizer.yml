@@ -1,14 +1,20 @@
 filter:
     paths: ["src/*"]
-tools:
-    php_sim: true
-    php_mess_detector: true
-    php_pdepend: true
-    php_analyzer: true
-    php_cpd: true
 build:
+    environment:
+        php:
+            version: 8.1
     nodes:
+        coverage:
+            tests:
+                override:
+                    - command: XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-clover=tests/clover.xml
+                      coverage:
+                          file: tests/clover.xml
+                          format: clover
         analysis:
             tests:
                 override:
-                    - php-scrutinizer-run --enable-security-analysis
+                    - php-scrutinizer-run
+tools:
+    external_code_coverage: false
