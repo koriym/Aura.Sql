@@ -6,3 +6,9 @@ tools:
     php_pdepend: true
     php_analyzer: true
     php_cpd: true
+build:
+    nodes:
+        analysis:
+            tests:
+                override:
+                    - php-scrutinizer-run --enable-security-analysis
