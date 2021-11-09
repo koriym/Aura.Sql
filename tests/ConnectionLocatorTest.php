@@ -1,7 +1,7 @@
 <?php
 namespace Aura\Sql;
 
-class ConnectionLocatorTest extends \PHPUnit_Framework_TestCase
+class ConnectionLocatorTest extends \TestCase
 {
     /**
      * @var ConnectionLocator
@@ -16,7 +16,7 @@ class ConnectionLocatorTest extends \PHPUnit_Framework_TestCase
 
     protected $write = [];
 
-    protected function setUp()
+    protected function _setUp()
     {
         $this->conns = [
             'default' => new ExtendedPdo('sqlite::memory:'),

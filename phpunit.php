@@ -1,4 +1,5 @@
 <?php
+
 error_reporting(E_ALL);
 $autoloader = __DIR__ . '/vendor/autoload.php';
 if (! file_exists($autoloader)) {
@@ -7,3 +8,8 @@ if (! file_exists($autoloader)) {
     exit(1);
 }
 require $autoloader;
+if (! class_exists('PHPUnit_Framework_TestCase')) {
+    require __DIR__ . '/tests/polyfill/TestCace.php';
+}else {
+    require __DIR__ . '/tests/polyfill/PHPUnit_Framework_TestCase.php';
+}

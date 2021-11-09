@@ -4,7 +4,7 @@ namespace Aura\Sql;
 use PDO;
 use stdClass;
 
-class ExtendedPdoTest extends \PHPUnit_Framework_TestCase
+class ExtendedPdoTest extends \TestCase
 {
     /** @var ExtendedPdoInterface */
     protected $pdo;
@@ -22,7 +22,7 @@ class ExtendedPdoTest extends \PHPUnit_Framework_TestCase
         10 => 'Kara',
     ];
 
-    public function setUp()
+    public function _setUp()
     {
         if (! extension_loaded('pdo_sqlite')) {
             $this->markTestSkipped("Need 'pdo_sqlite' to test in memory.");

@@ -1,7 +1,7 @@
 <?php
 namespace Aura\Sql\Parser;
 
-abstract class AbstractParserTest extends \PHPUnit_Framework_TestCase
+abstract class AbstractParserTest extends \TestCase
 {
     protected $parser;
 
